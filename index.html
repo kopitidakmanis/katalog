@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- JUDUL TAB BISA DIUBAH DI SINI -->
+  <title>LAVANYA</title> 
+  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg-page: #F6F6F6; --yellow: #EFCE65; --yellow-light: #F9F1D0; --dark: #2A2825; --text: #1A1A1A; --radius: 32px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: var(--bg-page); color: var(--text); line-height: 1.5; }
+    .app { max-width: 600px; margin: 0 auto; padding: 16px; padding-bottom: 100px; }
+    .hero { background-color: var(--yellow); border-radius: var(--radius); padding: 28px 24px; margin-top: 8px; margin-bottom: 24px; }
+    .hero-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; }
+    /* NAMA BRAND DI POJOK KIRI ATAS DIUBAH DI SINI */
+    .brand { font-size: 1.5rem; font-weight: 800; color: var(--dark); }
+    .badge-dark { background-color: var(--dark); color: #fff; padding: 8px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; }
+    .hero-text { font-size: clamp(2rem, 5vw, 2.4rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; color: var(--dark); margin-bottom: 32px; }
+    .btn-hero { display: inline-block; background-color: var(--dark); color: var(--yellow); font-weight: 700; padding: 14px 28px; border-radius: 50px; text-decoration: none; border: none; cursor: pointer; font-size: 1rem; }
+    
+    .section-title { font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px; }
+    .card { background: #fff; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+    .card-body { padding: 12px; display: flex; flex-direction: column; flex: 1; }
+    .card-cat { font-size: 0.65rem; font-weight: 700; color: #888; text-transform: uppercase; margin-bottom: 4px; }
+    .card h3 { font-size: 0.9rem; font-weight: 800; line-height: 1.2; margin-bottom: 8px; flex: 1; }
+    .price-row { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+    .btn-add { width: 100%; padding: 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; background: var(--dark); color: #fff; border: none; cursor: pointer; }
+
+    .cart-float { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: 568px; background: var(--dark); color: var(--yellow); padding: 16px 24px; border-radius: 50px; display: none; justify-content: space-between; font-weight: 700; cursor: pointer; border: none; z-index: 90; }
+    .cart-float.show { display: flex; }
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: flex-end; z-index: 100; }
+    .overlay.show { display: flex; }
+    .modal-content { background: #fff; width: 100%; max-width: 600px; border-radius: 32px 32px 0 0; padding: 32px 24px; max-height: 90vh; overflow-y: auto; position: relative; }
+    .close-btn { position: absolute; top: 24px; right: 24px; width: 36px; height: 36px; background: var(--yellow-light); border: none; border-radius: 50%; font-size: 1.2rem; font-weight: 800; cursor: pointer; }
+    .cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 16px; margin-bottom: 16px; }
+    .qty-control { display: flex; align-items: center; gap: 12px; }
+    .qty-btn { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--yellow); background: #fff; cursor: pointer; font-weight: bold; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 16px; border: 1.5px solid var(--yellow); border-radius: 16px; font-family: inherit; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-send-wa { width: 100%; background: #5CE07A; color: var(--dark); padding: 18px; border: none; border-radius: 50px; font-weight: 800; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="hero-nav">
+        <div class="brand">Nama Brand Kamu</div>
+        <div class="badge-dark">drop terbatas</div>
+      </div>
+      <div class="hero-text">Outfit santai buat kamu yang anti ribet.</div>
+      <a href="#katalog" class="btn-hero">Lihat koleksi</a>
+    </header>
+
+    <div class="section-title" id="katalog">Katalog Produk</div>
+    <div class="grid" id="product-grid"></div>
+  </div>
+
+  <button id="cart-btn" class="cart-float">
+    <span id="cart-text">0 item</span>
+    <span id="cart-price">Rp0</span>
+  </button>
+
+  <!-- MODAL KERANJANG -->
+  <div class="overlay" id="cart-modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="tutupModal('cart-modal')">×</button>
+      <h2 style="margin-bottom:24px;">Keranjang kamu</h2>
+      <div id="cart-items-container"></div>
+      <div style="display:flex; justify-content:space-between; font-weight:800; font-size:1.2rem; margin:24px 0;">
+        <span>Total</span>
+        <span id="modal-total-price">Rp0</span>
+      </div>
+      <button class="btn-hero" style="width: 100%;" onclick="bukaCheckout()">Lanjut Isi Data</button>
+    </div>
+  </div>
+
+  <!-- MODAL CHECKOUT -->
+  <div class="overlay" id="checkout-modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="tutupModal('checkout-modal')">×</button>
+      <div class="form-group"><label>Nama</label><input type="text" id="cust-name" placeholder="Nama lengkap"></div>
+      <div class="form-group"><label>No HP</label><input type="tel" id="cust-phone" placeholder="08xxxxxxxxxx"></div>
+      <div class="form-group"><label>Alamat</label><textarea id="cust-address" rows="3"></textarea></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Ekspedisi</label>
+          <select id="cust-courier">
+            <optgroup label="Dalam Negeri"><option value="JNE">JNE</option><option value="J&T">J&T</option><option value="TIKI">TIKI</option></optgroup>
+            <optgroup label="Luar Negeri"><option value="Pos Indonesia">Pos Indonesia</option><option value="Lion Parcel">Lion Parcel</option></optgroup>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Pembayaran</label>
+          <select id="cust-payment"><option value="QRIS">QRIS</option><option value="Transfer">Transfer</option></select>
+        </div>
+      </div>
+      <button class="btn-send-wa" onclick="kirimKeWA()">Kirim ke WhatsApp</button>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
