@@ -14,38 +14,38 @@ window.DATA = {
     },
     { 
       id: 2, 
-      nama: "Hoodie Santai", 
+      nama: "Lavanya-Arum Jeogori Pink", 
       kategori: "Atasan", 
-      harga: 159000, 
-      gambar: ["images/a3.jpg"] 
+      harga: 175000, 
+      gambar: ["images/arumpink1.JPG", "images/arumpink3.JPG"] 
     },
     { 
       id: 3, 
-      nama: "Cargo Pants", 
-      kategori: "Bawahan", 
-      harga: 179000, 
-      gambar: ["images/a4.jpg"] 
+      nama: "Lavanya-Orchid Outer Hanfu Maroon", 
+      kategori: "Outer", 
+      harga: 170000, 
+      gambar: ["images/b2.jpg", "images/b1.jpg", "images/b3.jpg", "images/b4.jpg"] 
     },
     { 
       id: 4, 
-      nama: "Tote Bag", 
-      kategori: "Aksesoris", 
-      harga: 69000, 
-      gambar: ["images/a1.jpg"] 
+      nama: "Lavanya-Daisy Jeogori", 
+      kategori: "Atasan", 
+      harga: 225000, 
+      gambar: ["images/e4.jpg", "images/e3.jpg", "images/e1.jpg"] 
     },
     { 
       id: 5, 
-      nama: "Kemeja Linen", 
+      nama: "Lavanya-Arum Jeogori Maroon", 
       kategori: "Atasan", 
-      harga: 149000, 
-      gambar: ["images/a2.jpg"] 
+      harga: 180000, 
+      gambar: ["images/c2.jpg", "images/c1.jpg", "images/c3.jpg", "images/c4.jpg"] 
     },
     { 
       id: 6, 
-      nama: "Celana Jogger", 
-      kategori: "Bawahan", 
-      harga: 129000, 
-      gambar: ["images/a3.jpg"] 
+      nama: "Lavanya-Arum Jeogori Beige", 
+      kategori: "Atasan", 
+      harga: 175000, 
+      gambar: ["images/d2.jpg", "images/d1.jpg", "images/d3.jpg"] 
     },
     { 
       id: 7, 
