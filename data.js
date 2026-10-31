@@ -5,7 +5,7 @@ window.DATA = {
   },
   produk: [
     { 
-      id: 1, nama: "Lavanya - Arum Jeogori (pink)", kategori: "Atasan", harga: 175000, gambar: ["arumpink1.jpg", "arumpink2.jpg", "arumpink3.jpg"] 
+      id: 1, nama: "Lavanya - Arum Jeogori (pink)", kategori: "Atasan", harga: 175000, gambar: ["arumpink1.JPG", "arumpink2.JPG", "arumpink3.JPG"] 
     },
     { id: 2, nama: "Hoodie Santai", kategori: "Atasan", harga: 159000, gambar: ["images/hoodie-1.jpg"] },
     { id: 3, nama: "Cargo Pants", kategori: "Bawahan", harga: 179000, gambar: ["images/cargo-1.jpg"] },
