@@ -1,23 +1,22 @@
 window.DATA = {
-  whatsapp: "6281234567890", 
+  whatsapp: "6289673835193", // GANTI nomor WA Business kamu
   custom: {
-    harga: 150000
+    nama: "Custom Piece"
+    // Harga custom sengaja dihilangkan sesuai revisi
   },
   produk: [
     { 
       id: 1, 
-      nama: "Kaos Oversize", 
+      nama: "Lavanya-Aster Jeogori", 
       kategori: "Atasan", 
-      harga: 89000, 
-      // Memanggil gambar a1 dan a2
-      gambar: ["images/a1.jpg", "images/a2.jpg"] 
+      harga: 245000, 
+      gambar: ["images/a4.jpg", "images/a1.jpg", "images/a3.jpg"] 
     },
     { 
       id: 2, 
       nama: "Hoodie Santai", 
       kategori: "Atasan", 
       harga: 159000, 
-      // Memanggil gambar a3
       gambar: ["images/a3.jpg"] 
     },
     { 
@@ -25,7 +24,6 @@ window.DATA = {
       nama: "Cargo Pants", 
       kategori: "Bawahan", 
       harga: 179000, 
-      // Memanggil gambar a4
       gambar: ["images/a4.jpg"] 
     },
     { 
@@ -33,7 +31,6 @@ window.DATA = {
       nama: "Tote Bag", 
       kategori: "Aksesoris", 
       harga: 69000, 
-      // Karena gambar a5 belum ada, kita pakai a1 dulu biar muncul
       gambar: ["images/a1.jpg"] 
     },
     { 
