@@ -39,13 +39,12 @@
     .price-row { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
     .btn-add { width: 100%; padding: 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; background: var(--dark); color: #fff; border: none; cursor: pointer; }
 
-    /* KOTAK CUSTOM */
+    /* KOTAK CUSTOM (Harga Dihapus) */
     .custom-box { background-color: var(--yellow-light); border-radius: var(--radius); padding: 24px; margin-bottom: 40px; }
     .custom-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
     .custom-head h3 { font-size: 1.2rem; font-weight: 800; }
     .upload-area { display: block; background: #fff; border: 2px dashed #CCC; border-radius: 16px; padding: 24px; text-align: center; cursor: pointer; margin: 16px 0; }
     .upload-area span { font-weight: 700; font-size: 0.9rem; color: var(--dark); display: block; margin-top: 8px; }
-    .price-custom { display: flex; justify-content: space-between; background: #fff; padding: 16px; border-radius: 12px; font-weight: 700; margin-bottom: 12px; }
     #preview { max-width: 100%; border-radius: 12px; margin-bottom: 12px; display: none; }
     .btn-custom { width: 100%; background: var(--dark); color: var(--yellow); padding: 16px; border: none; border-radius: 50px; font-weight: 700; font-size: 0.95rem; cursor: pointer; }
     .btn-custom:disabled { opacity: 0.4; cursor: not-allowed; }
@@ -74,7 +73,7 @@
         <div class="brand">Lavanya</div>
         <div class="badge-dark">Batch 1</div>
       </div>
-      <div class="hero-text">The Concert Series.</div>
+      <div class="hero-text">The Concert Series</div>
       <a href="#katalog" class="btn-hero">Lihat koleksi</a>
     </header>
 
@@ -96,10 +95,9 @@
         <input type="file" id="custom-photo" accept="image/jpeg,image/png,image/webp" hidden>
       </label>
       <img id="preview" alt="Preview">
-      <div class="price-custom">
-        <span>Harga Custom</span>
-        <span id="harga-custom">Rp150.000</span>
-      </div>
+      
+      <!-- BAGIAN HARGA CUSTOM SUDAH DIHAPUS DARI SINI -->
+      
       <button id="order-custom" class="btn-custom" disabled>Order Custom via WhatsApp</button>
     </div>
   </div>
